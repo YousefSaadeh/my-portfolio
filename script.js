@@ -1,10 +1,10 @@
 document.addEventListener('DOMContentLoaded', function () {
     const dynamicText = document.getElementById('dynamic-text');
-    const words = ['Software Engineer', 'Developer', 'Gamer', 'Programmer'];
+    const words = ['مهندس برمجيات', 'مطور برامج', 'جيمر', 'مبرمج'];
     let wordIndex = 0;
     let letterIndex = 0;
     let timeout = 100; // الوقت بين ظهور كل حرف (بالملي ثانية)
-    let displayTimeout = 2000; // الوقت الذي يظهر فيه الكلمة بالكامل قبل الحذف (بالملي ثانية)
+    let displayTimeout = 1000; // الوقت الذي يظهر فيه الكلمة بالكامل قبل الحذف (بالملي ثانية)
     let deleteTimeout = 50; // الوقت بين حذف كل حرف (بالملي ثانية)
 
     function typeLetter() {
@@ -39,5 +39,22 @@ document.addEventListener('DOMContentLoaded', function () {
         document.title = 'وداعًا!'; // العنوان الجديد
         // تأكد من تعيين عنوان جديد ليظهر في بعض المتصفحات
         event.returnValue = ''; // معظم المتصفحات لا تعرض الرسالة المخصصة، ولكن يمكن استخدام هذه القيمة لتفعيل الحدث
+    
+        document.querySelectorAll('a.nav-link').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        ScrollReveal().reveal('.section', {
+            duration: 1000,
+            origin: 'bottom',
+            distance: '50px',
+            reset: true
+        });        
+        
     });
 });
