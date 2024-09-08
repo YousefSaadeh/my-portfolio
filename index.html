@@ -16,16 +16,19 @@
             <img src="images/logo.png" alt="شعار يوسف سعادة" class="logo">
         </a>
         <button id="mode-toggle">التبديل إلى الوضع الليلي</button>
-        <nav>
-            <ul>
-                <li><a href="#home" class="nav-link">الرئيسية</a></li>
-                <li><a href="#about" class="nav-link">عنّي</a></li>
-                <li><a href="#projects" class="nav-link">المشاريع</a></li>
-                <li><a href="#contact" class="nav-link">اتصل بي</a></li>
-                <li><a href="#achievements" class="nav-link">الإنجازات</a></li>
-            </ul>
-        </nav>
-    </header>    
+        <div class="menu-container">
+            <button class="menu-btn" onclick="toggleMenu()">&#8942;</button>
+            <div class="dropdown-menu" id="dropdownMenu">
+                <a href="#home">الرئيسية</a>
+                <a href="#about">عنّي</a>
+                <a href="#projects">المشاريع</a>
+                <a href="#contact">اتصل بي</a>
+                <a href="#achievements">الإنجازات</a>
+            </div>
+        </div>        
+    
+    </header>
+    
 
     <section id="home" class="section active">
         <img src="images/logo.png" alt="شعار يوسف سعادة" class="home-logo">

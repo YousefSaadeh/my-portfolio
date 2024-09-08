@@ -14,11 +14,11 @@ document.addEventListener('DOMContentLoaded', function () {
     toggleButton.addEventListener('click', function () {
         if (body.classList.contains('day-mode')) {
             body.classList.replace('day-mode', 'night-mode');
-            toggleButton.textContent = 'Light mode';
+            toggleButton.textContent = 'التبديل إلى الوضع النهاري';
             localStorage.setItem('mode', 'night-mode');
         } else {
             body.classList.replace('night-mode', 'day-mode');
-            toggleButton.textContent = 'Night mode';
+            toggleButton.textContent = 'التبديل إلى الوضع الليلي';
             localStorage.setItem('mode', 'day-mode');
         }
     });
@@ -64,6 +64,25 @@ document.addEventListener('DOMContentLoaded', function () {
             setTimeout(typeLetter, timeout);
         }
     }
+
+    function toggleMenu() {
+        const menu = document.getElementById('dropdownMenu');
+        menu.classList.toggle('show');
+    }
+    
+    document.querySelector('.menu-btn').addEventListener('click', toggleMenu);
+    
+    window.onclick = function(event) {
+        if (!event.target.matches('.menu-btn')) {
+            const dropdowns = document.getElementsByClassName('dropdown-menu');
+            for (let i = 0; i < dropdowns.length; i++) {
+                const openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+            }
+        }
+    }    
 
     typeLetter();
 });
