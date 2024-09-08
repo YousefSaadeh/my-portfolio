@@ -1,17 +1,31 @@
+/* توحيد أنماط body */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    color: #333;
+    transition: background-color 0.5s, color 0.5s;
 }
 
+/* الوضع النهاري */
+body.day-mode {
+    background-color: white;
+    color: black;
+}
+
+/* الوضع الليلي */
+body.night-mode {
+    background-color: #121212;
+    color: white;
+}
+
+/* عناصر أخرى */
 header {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    padding: 10px;
+    align-items: center;
+    padding: 10px 20px;
     background-color: #333;
-    color: #fff;
+    color: white;
 }
 
 .logo {
@@ -19,53 +33,44 @@ header {
 }
 
 nav ul {
-    display: flex;
     list-style: none;
-    margin: 0;
-    padding: 0;
+    display: flex;
+    gap: 20px;
 }
 
-nav ul li {
-    margin: 0 15px;
-}
-
-.nav-link {
-    color: #fff;
+nav a {
+    color: white;
     text-decoration: none;
-    font-weight: bold;
 }
 
-.nav-link:hover {
-    text-decoration: underline;
+#mode-toggle {
+    padding: 10px;
+    cursor: pointer;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
 }
 
 .section {
-    padding: 20px;
-    margin: 10px;
-}
-
-.home-logo {
-    height: 100px;
-    display: block;
-    margin: 0 auto;
+    padding: 50px 20px;
+    text-align: center;
 }
 
 footer {
     text-align: center;
-    padding: 10px;
+    padding: 20px;
     background-color: #333;
-    color: #fff;
+    color: white;
 }
 
-.footer-logo {
-    height: 40px;
+.home-logo {
+    height: 100px;
+    margin-bottom: 20px;
 }
 
 #dynamic-text {
+    color: #FF6347;
     font-weight: bold;
-    color: #007BFF; 
-}
-
-body {
-    background-color: #ccbfbf;
+    transition: color 0.5s ease;
 }
