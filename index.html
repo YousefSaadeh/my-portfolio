@@ -9,6 +9,7 @@
     <meta property="og:image" content="images/logo.png" />
     <meta property="og:url" content="https://yousefsaadeh.vercel.app/" />
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
 </head>
 <body>
     <header>
@@ -17,18 +18,16 @@
         </a>
         <button id="mode-toggle">التبديل إلى الوضع الليلي</button>
         <div class="menu-container">
-            <button class="menu-btn" onclick="toggleMenu()">&#8942;</button>
+            <button class="menu-btn" onclick="toggleMenu()">☰</button>
             <div class="dropdown-menu" id="dropdownMenu">
-                <a href="#home">الرئيسية</a>
-                <a href="#about">عنّي</a>
-                <a href="#projects">المشاريع</a>
-                <a href="#contact">اتصل بي</a>
-                <a href="#achievements">الإنجازات</a>
+                <a href="#home" class="nav-link">الرئيسية</a>
+                <a href="#about" class="nav-link">عنّي</a>
+                <a href="#projects" class="nav-link">المشاريع</a>
+                <a href="#contact" class="nav-link">اتصل بي</a>
+                <a href="#achievements" class="nav-link">الإنجازات</a>
             </div>
         </div>        
-    
     </header>
-    
 
     <section id="home" class="section active">
         <img src="images/logo.png" alt="شعار يوسف سعادة" class="home-logo">

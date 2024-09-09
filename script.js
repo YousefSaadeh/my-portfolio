@@ -2,6 +2,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const toggleButton = document.getElementById('mode-toggle');
     const body = document.body;
 
+    const menuButton = document.querySelector('.menu-btn');
+    menuButton.addEventListener('click', toggleMenu);
+
     // التحقق من localStorage للحصول على الوضع المحفوظ
     const savedMode = localStorage.getItem('mode');
     if (savedMode) {
@@ -24,12 +27,12 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // تأثير التمرير السلس بين الأقسام
-    document.querySelectorAll('a.nav-link').forEach(anchor => {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
+            const targetSectionId = this.getAttribute('href').substring(1);
+            showSection(targetSectionId);
+            hideMenu(); // إخفاء القائمة المنسدلة عند النقر على أحد الروابط
         });
     });
 
@@ -65,24 +68,28 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    // عرض القسم المحدد وإخفاء البقية
+    function showSection(sectionId) {
+        document.querySelectorAll('.section').forEach(section => {
+            if (section.id === sectionId) {
+                section.classList.add('active');
+            } else {
+                section.classList.remove('active');
+            }
+        });
+    }
+
+    // دالة لتبديل عرض القائمة المنسدلة
     function toggleMenu() {
         const menu = document.getElementById('dropdownMenu');
         menu.classList.toggle('show');
     }
-    
-    document.querySelector('.menu-btn').addEventListener('click', toggleMenu);
-    
-    window.onclick = function(event) {
-        if (!event.target.matches('.menu-btn')) {
-            const dropdowns = document.getElementsByClassName('dropdown-menu');
-            for (let i = 0; i < dropdowns.length; i++) {
-                const openDropdown = dropdowns[i];
-                if (openDropdown.classList.contains('show')) {
-                    openDropdown.classList.remove('show');
-                }
-            }
-        }
-    }    
+
+    // دالة لإخفاء القائمة المنسدلة
+    function hideMenu() {
+        const menu = document.getElementById('dropdownMenu');
+        menu.classList.remove('show');
+    }
 
     typeLetter();
 });

@@ -4,6 +4,14 @@ body {
     margin: 0;
     padding: 0;
     transition: background-color 0.5s, color 0.5s;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
 }
 
 /* الوضع النهاري */
@@ -55,6 +63,11 @@ nav a {
 .section {
     padding: 50px 20px;
     text-align: center;
+    display: none;
+}
+
+.section.active {
+    display: block;
 }
 
 footer {
@@ -97,7 +110,7 @@ footer {
 
 /* تنسيق القائمة المنسدلة */
 .dropdown-menu {
-    display: none;
+    display: none; /* إخفاء القائمة بشكل افتراضي */
     position: absolute;
     top: 100%;
     right: 0;
@@ -107,11 +120,16 @@ footer {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     width: 200px;
     z-index: 1000;
+    opacity: 0; /* اجعل القائمة شفافة */
+    transform: translateY(-10px); /* اجعل القائمة تبدأ من أعلى */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* أضف تأثيرات الانتقال */
 }
 
 /* تأثير الرسوم المتحركة عند العرض والإخفاء */
 .dropdown-menu.show {
-    display: block;
+    display: block; /* عرض القائمة */
+    opacity: 1; /* اجعل القائمة غير شفافة */
+    transform: translateY(0); /* اجعل القائمة في موضعها الطبيعي */
 }
 
 /* تنسيق العناصر في القائمة */
