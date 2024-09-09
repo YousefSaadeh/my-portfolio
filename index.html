@@ -6,7 +6,7 @@
     <title>يوسف سعادة</title>
     <meta property="og:title" content="يوسف سعادة" />
     <meta property="og:description" content="مهندس برمجيات، مطور، لاعب، ومبرمج. أهلاً بك في موقعي الشخصي." />
-    <meta property="og:image" content="images/logo.png" />
+    <meta property="og:image" content="https://yousefsaadeh.vercel.app/images/logo.png" />
     <meta property="og:url" content="https://yousefsaadeh.vercel.app/" />
     <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
@@ -17,7 +17,10 @@
         <a href="#home">
             <img src="images/logo.png" alt="شعار يوسف سعادة" class="logo">
         </a>
-        <button id="mode-toggle">التبديل إلى الوضع الليلي</button>
+        <button id="mode-toggle" aria-label="تبديل الوضع">
+            <i class="fas fa-sun" id="sun-icon"></i>
+            <i class="fas fa-moon" id="moon-icon"></i>
+        </button>        
         <div class="menu-container">
             <button class="menu-btn" onclick="toggleMenu()">☰</button>
             <div class="dropdown-menu" id="dropdownMenu">
@@ -33,14 +36,13 @@
     <section id="home" class="section active">
         <img src="images/logo.png" alt="شعار يوسف سعادة" class="home-logo">
         <h1>مرحبا، انا يوسف سعادة</h1>
-        <h2>انا <span id="dynamic-text"></span> عمري 20 عامًا من الأردن.</h2>
+        <h3>انا <span id="dynamic-text"></span> عمري 20 عامًا من الأردن</h3>
     </section>
 
     <section id="about" class="section">
         <h1>عنّي</h1>
-        <h2>اسمي يوسف سعادة، طالب هندسة برمجيات في الأردن.
-            <br>بدرس في جامعة <a href="https://www.aau.edu.jo/ar" target="_blank">عمان العربية</a>
-        </h2>
+        <h2>اسمي يوسف سعادة، طالب هندسة برمجيات في <a href="https://www.aau.edu.jo/ar" target="_blank">عمان العربية</a></h2>
+        <p><b>عمري 20، من الأردن</b></p>
     </section>
 
     <section id="projects" class="section">
@@ -82,6 +84,13 @@
         <p>&copy; 2024 يوسف سعادة. جميع الحقوق محفوظة.</p>
     </footer>    
 
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('dropdownMenu');
+            menu.classList.toggle('show');
+        }
+    </script>
+    
     <script src="script.js"></script>
 </body>
 </html>

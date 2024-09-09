@@ -2,14 +2,15 @@ document.addEventListener('DOMContentLoaded', function () {
     const toggleButton = document.getElementById('mode-toggle');
     const body = document.body;
 
-    const menuButton = document.querySelector('.menu-btn');
-    menuButton.addEventListener('click', toggleMenu);
+    const sunIcon = document.getElementById('sun-icon');
+    const moonIcon = document.getElementById('moon-icon');
 
     // التحقق من localStorage للحصول على الوضع المحفوظ
     const savedMode = localStorage.getItem('mode');
     if (savedMode) {
         body.classList.add(savedMode);
-        toggleButton.textContent = savedMode === 'night-mode' ? 'التبديل إلى الوضع النهاري' : 'التبديل إلى الوضع الليلي';
+        sunIcon.style.opacity = savedMode === 'night-mode' ? '0' : '1';
+        moonIcon.style.opacity = savedMode === 'night-mode' ? '1' : '0';
     } else {
         body.classList.add('day-mode');
     }
@@ -17,11 +18,13 @@ document.addEventListener('DOMContentLoaded', function () {
     toggleButton.addEventListener('click', function () {
         if (body.classList.contains('day-mode')) {
             body.classList.replace('day-mode', 'night-mode');
-            toggleButton.textContent = 'التبديل إلى الوضع النهاري';
+            sunIcon.style.opacity = '0';
+            moonIcon.style.opacity = '1';
             localStorage.setItem('mode', 'night-mode');
         } else {
             body.classList.replace('night-mode', 'day-mode');
-            toggleButton.textContent = 'التبديل إلى الوضع الليلي';
+            sunIcon.style.opacity = '1';
+            moonIcon.style.opacity = '0';
             localStorage.setItem('mode', 'day-mode');
         }
     });
