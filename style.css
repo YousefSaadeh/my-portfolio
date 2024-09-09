@@ -158,3 +158,30 @@ body.night-mode .dropdown-menu a {
 body.night-mode .dropdown-menu a:hover {
     background-color: #444;
 }
+
+.social-links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-links li {
+    margin: 0;
+}
+
+.social-links a {
+    text-decoration: none;
+    color: inherit;
+    font-size: 24px;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: #007BFF; /* أو أي لون تفضله */
+}
+
+.social-links i {
+    vertical-align: middle;
+}
